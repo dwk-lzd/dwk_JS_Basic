@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let arr = [1, 2, 3]
+        console.log(...arr);// 展开运算符，将数组元素展开为单独的参数
+        // 本质上是...arr === 1,2,3
+        // console.log(Math.max(1,2,3));// 里面只能是数字，不能是数组
+
+        // 这时候我们的展开运算符就派上了用场
+        console.log(Math.max(...arr));// 1,2,3会被展开为单独的参数，这样就可以传入数组了
+
+
+        // 合并数组
+        let arr1 = [4, 5, 6]
+        const arr2 = [...arr, ...arr1]
+        console.log(arr2); // [1, 2, 3, 4, 5, 6]
+    </script>
+</body>
+
+</html>

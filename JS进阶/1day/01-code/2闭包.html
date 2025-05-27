@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // 简单的写法
+        // function outer() {
+        //     let a = 10
+        //     function fn() {
+        //         console.log(a);
+
+        //     }
+        //     fn()
+        // }
+        // outer()
+
+        // 常见的闭包的形式
+        function outer() {
+            let a = 100
+            return function fn() {
+                console.log(a);
+            }
+            return fn
+        }
+        // outer()===fn(){}
+        // fun=outer()===fn(){},所以fun()会调用函数outer()中的fn(){}函数，打印出a的值100
+        let fun = outer()
+        fun()
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 会把函数定义提升到当前作用域的顶部（包括函数内部的内容）
+        // 所以在执行到fn()的时候，函数已经被提升了
+        fn()
+        function fn() {
+            console.log("Hello")
+        }
+
+        // 函数表达式
+        // fn(); // 报错，因为函数表达式会被提升到当前作用域的顶部，但是赋值操作不会被提升
+        // 所以函数表达式必须先声明，再调用
+
+
+        // var fn = function () {
+        //     console.log("Hello")
+        // }
+    </script>
+</body>
+
+</html>

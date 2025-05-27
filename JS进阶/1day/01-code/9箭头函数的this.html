@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        // // 以前this的指向：谁调用整个函数，this就指向谁
+
+        // console.log(this); // window
+        // function fn() {
+        //     console.log(this); // window
+
+        // }
+        // fn() // 其实是window.fn(), 所以this指向window
+
+        // const obj = {
+        //     name: '帅哥',
+        //     syaHI: function () {
+        //         console.log(this); // obj
+
+        //     }
+        // }
+        // obj.sayHI(); // 其实是obj.sayHI(), 所以this指向obj
+
+
+        // 箭头函数不会创建自己的this,它只会从自己的作用域链的上一层沿用this。
+        const fn2 = () => {
+            console.log(this); // window
+        }
+        fn2()// 箭头函数会指向上一层作用域的this，也就是全局作用域的this, 即window。
+
+        // 对象方法箭头函数
+        const obj2 = {
+            name: '帅哥',
+            sayHI: () => {
+                console.log(this); // window
+            }
+        }
+        obj2.sayHI(); // 箭头函数会指向上一层作用域的this，也就是全局作用域的this, 即window。
+
+
+        const obj3 = {
+            name: '帅哥',
+            sayHI: function () {
+                let i = 10
+                const fn3 = () => {
+                    console.log(this); // obj3
+                    console.log(this.name);// 帅哥
+
+                }
+                fn3()// 箭头函数会指向上一层作用域的this，也就是sayHi的this, 即obj3。
+            }
+        }
+        obj3.sayHI(); // 箭头函数会指向上一层作用域的this，也就是sayHi的this, 即obj3。
+
+    </script>
+</body>
+
+</html>

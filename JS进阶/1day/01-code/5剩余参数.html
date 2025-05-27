@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function getSum(...other) {
+            console.log(other);
+
+        }
+        getSum(1, 2, 3);
+
+        // 剩余参数必须是最后一个参数
+        // 假设最上输入两个
+        function getSum2(a, b, ...other) {
+            // 是真数组，可以使用数组的方法
+
+            let sum = a + b;
+            for (let i = 0; i < other.length; i++) {
+                sum += other[i];
+            }
+            console.log(sum);
+        }
+        getSum2(1, 2, 3);
+    </script>
+</body>
+
+</html>

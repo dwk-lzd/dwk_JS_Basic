@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 利用箭头函数来求和
+        const getSum = (...other) => {
+            let sum = 0;
+            for (let i = 0; i < other.length; i++) {
+                sum += other[i];
+            }
+            console.log(sum);
+
+
+        }
+        getSum(1, 2, 3);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // let a = 10
+        // function outer() {
+        //     a++
+        //     console.log(`被调用了${a}次`)
+        // }
+        // outer()//被调用了11次,明显是不行的
+
+        function outer() {
+            let i = 0
+            function inner() {
+                i++
+                console.log(`被调用了${i}次`)
+            }
+            return inner
+        }
+        const fun = outer()
+        fun()//被调用了1次
+        fun()//被调用了2次
+        fun()//被调用了3次
+    </script>
+</body>
+
+</html>

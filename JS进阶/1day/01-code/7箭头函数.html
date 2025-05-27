@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function fn() {
+            console.log("Hello World");
+        }
+        fn();
+        // 箭头函数
+        const fn2 = () => {
+            console.log("Hello World");
+        }
+        fn2();
+
+        // 箭头函数传递参数
+        const fn3 = (a, b) => {
+            console.log(a + b);
+        }
+        fn3(1, 2);
+
+        // 箭头函数传递参数简化写法,只有一个形参可以省略小括号
+        const fn4 = a => {
+            console.log(a);
+        }
+        fn4(1);
+
+        // 箭头函数简化写法,如果只有一条语句可以省略大括号
+        const fn5 = a => console.log(a);
+        fn5(1);
+
+        // 箭头函数简化写法,如果只有一条语句可以省略大括号和return
+        const fn6 = a => a + 1;
+        console.log(fn6(1));
+
+        // 箭头函数可以直接返回一个对象
+        const fn7 = (uname) => ({ name: uname })    // 注意：如果要返回一个对象，需要用小括号包裹起来。因为大括号会被认为是代码块{}
+        console.log(fn7('帅哥'));
+
+    </script>
+</body>
+
+</html>
