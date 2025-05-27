@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div {
+      width: 200px;
+      height: 200px;
+      background-color: pink;
+    }
+
+    .nav {
+      color: red;
+    }
+
+    .box {
+      width: 300px;
+      height: 300px;
+      background-color: skyblue;
+      margin: 100px auto;
+      padding: 10px;
+      border: 10px solid black;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="nav">123456</div>
+  <script>
+    const div = document.querySelector('div')
+    div.className = 'nav box'   //className是使用新值换旧值, 如果需要添加一个类,需要保留之前的类名
+
+  </script>
+</body>
+
+</html>

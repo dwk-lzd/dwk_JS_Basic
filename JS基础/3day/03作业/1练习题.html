@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    let arr = []
+    let sum = 0
+    // 输入五个有效年龄（0-100）
+    for (let i = 1; i <= 5; i++) {
+      let age = +prompt('请输入五个有效年龄（0-100）')
+      if (0 <= age && age <= 100) {
+        arr.push(age)
+      } else {
+        alert('输入无效，请重新输入')
+        break
+      }
+
+    }
+    // 输出所有大于等于18岁的年龄
+
+    for (let j = 0; j < arr.length; j++) {
+      if (arr[j] >= 18) {
+        document.write(`${arr[j]}岁<br>`)
+      }
+    }
+    // 输出所有人总年龄
+
+    for (let k = 0; k < arr.length; k++) {
+      sum += arr[k]
+    }
+    document.write(`所有人总年龄是${sum}岁<br>`)
+    // 输出平均年龄
+    document.write(`平均年龄是${sum / arr.length}岁<br>`)
+    //打印出最大年龄
+    let max = arr[0]
+
+    for (m = 1; m < arr.length; m++) {
+      if (max > arr[m]) {
+        max = arr[m]
+      }
+    }
+    document.write(`最大年龄是${max}岁<br>`)
+    //打印出最小年龄
+    let min = arr[0]
+    for (n = 1; n < arr.length; n++) {
+      if (min < arr[n]) {
+        min = arr[n]
+      }
+    }
+    document.write(`最小年龄是${min}岁<br>`)
+
+  </script>
+</body>
+
+</html>

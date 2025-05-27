@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="box">我是文字的内容</div>
+  <p class="par">我是帅哥</p>
+  <script>
+    // 1.获取元素
+
+    const box = document.querySelector('.box')
+    const par = document.querySelector('.par')
+    //2.修改文字内容   对象.innerText='新的文字内容'
+    // console.log(box.innerText)
+    // box.innerText = '我是新的文字内容'
+
+
+    // 3.innerHTML 解析标签
+    console.log(box.innerHTML)
+    box.innerHTML = '<strong>我要更换</strong>'
+
+
+
+    // par.innerText = '嘿嘿'
+    par.innerHTML = '帅哥'
+  </script>
+</body>
+
+</html>

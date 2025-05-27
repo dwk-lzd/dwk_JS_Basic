@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    function getRandom(N = 0, M = 0) {
+      return Math.floor(Math.random() * (M - N + 1)) + N;
+    }
+    let random = getRandom(1, 10)
+    //设定三次机会，三次没猜对就直接退出
+    let flag = true//开关变量
+    for (let i = 1; i <= 3; i++) {
+      let guess = prompt(`请猜一个1到10之间的数，你有三次机会`)
+      if (guess > random) {
+        alert(`你猜大了,请重新猜`)
+
+      } else if (guess < random) {
+        alert(`你猜小了,请重新猜`)
+      } else {
+        flag = false
+        alert(`恭喜你猜对了`)
+        break
+      }
+    }
+    //写到for的外面
+    if (flag) {
+      alert('次数已经用完')
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // let i = 1
+    // while (i <= 5) {
+    //   if (i === 3) {
+    //     break
+    //   }
+    //   document.write(`我要吃第${i}个包子<br>`)
+    //   i++
+
+    // }
+
+    let i = 1
+    while (i <= 5) {
+      if (i === 3) {
+        i++//如果不加这句，则会陷入死循环，因为i始终是3，永远不满足条件跳出循环。加了这句之后，下一次循环时i会变成4，满足了跳出循环的条件。
+        continue
+      }
+      document.write(`我要吃第${i}个包子<br>`)
+      i++
+    }
+  </script>
+</body>
+
+</html>

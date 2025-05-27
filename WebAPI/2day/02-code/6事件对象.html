@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <input type="text">
+  <script>
+    const ipt = document.querySelector('input')
+    ipt.addEventListener('keyup', function (e) {
+      // console.log(e.key)
+      if (e.key === 'Enter') {
+        console.log('我按下了回车键')//我们可以根据此做发表评论之类的操作
+
+      }
+
+    })
+  </script>
+</body>
+
+</html>

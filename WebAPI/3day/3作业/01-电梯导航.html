@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            height: 3000px;
+        }
+
+        .aside {
+            position: fixed;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+
+        }
+
+        .item {
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            padding: 0 10px;
+            cursor: pointer;
+        }
+
+        .active {
+            background-color: red;
+            color: #fff;
+        }
+
+        .content {
+            width: 660px;
+            margin: 400px auto;
+        }
+
+        .neirong {
+            height: 300px;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .content1 {
+            background-color: red;
+        }
+
+        .content2 {
+            background-color: blue;
+        }
+
+        .content3 {
+            background-color: orange;
+        }
+
+        .content4 {
+            background-color: yellowgreen;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="aside">
+        <div class="item active" data-id="1">男装/女装</div>
+        <div class="item" data-id="2">儿童服装/游乐园</div>
+        <div class="item" data-id="3">电子产品</div>
+        <div class="item" data-id="4">电影/美食</div>
+    </div>
+
+    <div class="content">
+        <div class="neirong content1">男装/女装</div>
+        <div class="neirong content2">儿童服装/游乐园</div>
+        <div class="neirong content3">电子产品</div>
+        <div class="neirong content4">电影/美食</div>
+    </div>
+
+    <script>
+        //获取侧边栏元素
+        const aside = document.querySelector('.aside')
+        //给侧边栏添的父元素添加一个委托事件
+        aside.addEventListener('click', function (e) {
+            if (e.target.tagName === 'DIV') {
+                const id = e.target.dataset.id
+                document.documentElement.scrollTop = document.querySelector(`.content${id}`).offsetTop
+                //移除之前的激活状态
+
+                document.querySelector('.active').classList.remove('active')
+                // 添加新的激活状态
+                e.target.classList.add('active')
+
+
+            }
+        })
+
+        //给页面添加一个滚动事件
+        window.addEventListener('scroll', function () {
+            //获取滚动条滚动的距离
+            const n = document.documentElement.scrollTop
+            //获取之前的激活状态元素
+            const old = document.querySelector('.active')
+            //排他思想，有就清除
+            if (old) {
+                document.querySelector('.active').classList.remove('active')
+
+            }
+            //获取四个大盒子
+            const content1 = document.querySelector('.content1').offsetTop
+            const content2 = document.querySelector('.content2').offsetTop
+            const content3 = document.querySelector('.content3').offsetTop
+            const content4 = document.querySelector('.content4').offsetTop
+
+
+            //判断滚动条滚动的距离和四个大盒子之间的距离，然后添加激活状态
+            if (n >= content1 && n < content2) {
+                document.querySelector('[data-id="1"]').classList.add('active')
+            } else if (n >= content2 && n < content3) {
+                document.querySelector('[data-id="2"]').classList.add('active')
+
+            } else if (n >= content3 && n < content4) {
+                document.querySelector('[data-id="3"]').classList.add('active')
+            } else if (n >= content4) {
+                document.querySelector('[data-id="4"]').classList.add('active')
+            }
+
+        })
+
+
+    </script>
+</body>
+
+</html>

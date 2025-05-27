@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    function getSum(x = 0, y = 0) {
+      let sum = 0
+      if (x > y) {
+        for (let i = y; i <= x; i++) {
+          sum += i
+        }
+      } else if (x < y) {
+        for (let j = x; j <= y; j++) {
+          sum += j
+        }
+      } else {
+        sum = x + y
+      }
+      return sum
+    }
+    let re = getSum(5, 1)
+    console.log(re)
+  </script>
+</body>
+
+</html>

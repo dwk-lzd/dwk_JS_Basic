@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    //生成一个0到20的随机数
+    let flag = true
+    let random = Math.floor(Math.random() * 21)
+    for (let i = 1; i <= 5; i++) {
+      let guess = +prompt('请猜一个0-20的数字，你有5次机会')
+      if (guess > random) {
+        alert('猜大了,请再猜一次')
+
+      } else if (guess < random) {
+        alert('猜小了,请再猜一次')
+      } else {
+        alert('恭喜你猜对了')
+        flag = false
+        break
+      }
+    }
+    if (flag) {
+      alert(`很遗憾五次机会都用完了，正确答案是${random}`)
+    }
+
+  </script>
+</body>
+
+</html>

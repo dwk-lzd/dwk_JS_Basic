@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    let money = 100//需要写在循环的外面，否则每次循环都会重置为100
+
+
+    while (true) {
+      let re = +prompt(`
+      请您选择操作
+      1.存钱
+      2.取钱
+      3.查看余额
+      4.退出
+      `)
+      if (re === 4) {
+        break
+      }
+      switch (re) {
+        case 1:
+          let save = +prompt('请输入存入金额')
+          money += save
+          break
+        case 2:
+          let take = +prompt('请输入取出金额')
+          money -= take
+          break
+        case 3:
+          alert(`您的余额为${money}`)
+          break
+      }
+    }
+  </script>
+</body>
+
+</html>

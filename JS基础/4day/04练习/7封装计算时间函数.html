@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 1.用户输入
+    let second = +prompt('请输入秒数:')
+
+    // 2.封装函数
+    function getTime(t) {
+      //转换
+      let s = parseInt(t % 60)
+      let m = parseInt(t / 60 % 60)
+      let h = parseInt(t / 3600 % 24)
+      if (s < 10) {
+        s = '0' + s
+      }
+      if (m < 10) {
+        m = '0' + m
+      }
+      if (h < 10) {
+        h = '0' + h
+      }
+      // console.log(`${h}时:${m}分:${s}秒`)
+      return `转换之后是${h}时:${m}分:${s}秒`
+    }
+    let str = getTime(second)
+    document.write(str)
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .box {
+      width: 300px;
+      height: 100px;
+      background-color: pink;
+      position: relative;
+      line-height: 100px;
+      text-align: center;
+      font-size: 30px;
+      margin: 100px auto;
+    }
+
+    .x {
+      width: 30px;
+      height: 30px;
+
+      position: absolute;
+      top: 0;
+      right: 0;
+      background-color: skyblue;
+      font-size: 20px;
+      line-height: 30px;
+      text-align: center;
+      cursor: pointer;
+      /* 鼠标样式 */
+
+
+    }
+
+    .x:hover {
+      background-color: orange;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    我是广告
+    <div class="x">X</div>
+  </div>
+  <script>
+    const box = document.querySelector('.box')
+    const x = document.querySelector('.x')
+    x.addEventListener('click', function () {
+      // box.classList.remove('box')
+      // x.classList.remove('x')
+      // box.innerHTML = ''
+      // x.innerHTML = ''
+      box.style.display = 'none'    //直接隐藏大盒子就好
+
+    })
+  </script>
+</body>
+
+</html>

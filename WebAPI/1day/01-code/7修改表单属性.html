@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- <input type="text" value="电脑"> -->
+  <input type="checkbox" name="" id="">
+  <button>点击</button>
+  <script>
+    //获取元素
+    // const input = document.querySelector('input')
+
+    //获取值 获取表单里面的值 用的是 .value 属性
+    // console.log(input.value)
+
+    //设置表单的值
+    // input.value = '我要买电脑'
+
+    // input.type = 'password'
+
+
+    const ipt = document.querySelector('input')
+    ipt.checked = true
+    //ipt.checked='true'  //也会选中，因为隐式转换（所有字符串只有''为false）   不提倡
+
+    const btn = document.querySelector('button')
+    console.log(btn.disabled)    //默认false不禁用
+    btn.disabled = true
+
+  </script>
+</body>
+
+</html>

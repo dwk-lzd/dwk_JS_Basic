@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    function fn() {
+      let balance = +prompt('请输入银行卡余额')
+      let foodSpend = +prompt('请输入本月食宿支出')
+      let liveSpend = +prompt('请输入本月生活支出')
+      return balance - foodSpend - liveSpend
+    }
+    let re = fn()
+    alert(`银行卡余额还剩${re}元`)
+  </script>
+</body>
+
+</html>

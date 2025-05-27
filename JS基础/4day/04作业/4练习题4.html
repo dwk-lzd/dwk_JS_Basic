@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    function result() {
+      let balance = +prompt('请输入当月余额')
+      let foodSpend = +prompt('请输入当月食宿消费金额')
+      let liveSpend = +prompt('请输入当月生活消费金额')
+      if (foodSpend + liveSpend > balance) {
+        alert('本月消费超支，请合理安排消费')
+        return 0
+      }
+
+      return balance - foodSpend - liveSpend
+    }
+    let money = result()
+    document.write(`银行卡剩余金额${money}元`)
+  </script>
+</body>
+
+</html>

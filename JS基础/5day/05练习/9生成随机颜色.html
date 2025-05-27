@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    //     需求：该函数接收一个布尔类型参数，表示颜色的格式是十六进制还是rgb格式。
+    // ①：如果参数传递的是true或者无参数，则输出 一个随机十六进制的颜色
+    // ②：如果参数传递的是false，则输出 一个随机rgb的颜色
+    // ③：格式：
+    // function getRandomColor(flag){
+    // }
+    // console.log(getRandomColor(true)) //#ffffff
+    // console.log(getRandomColor(false)) //rgb(255,255,255)
+    // 分析：
+    // 提示： 16进制颜色格式为:  ‘#ffffff’   其中f可以是任意 0-f之间的字符,需要用到数组，
+    //        let arr = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f']
+    // 提示:   rgb颜色格式为:  ‘rgb(255,255,255) ’  其中255可以是任意0-255之间的数字
+
+
+    //定义随机颜色函数
+    function getRandomColor(flag = true) {
+      if (flag) {
+        let arr = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f']
+        let str = '#'
+        //利用for循环随机抽取六次
+        for (let i = 1; i <= 6; i++) {
+          let random = arr[Math.floor(Math.random() * arr.length)]
+          str += random
+        }
+        return str
+
+      } else {
+        let r = Math.floor(Math.random() * 256)
+        let g = Math.floor(Math.random() * 256)
+        let b = Math.floor(Math.random() * 256)
+        return `rgb(${r},${g},${b})`
+      }
+
+    }
+    console.log(getRandomColor(true))
+    console.log(getRandomColor(false))
+    console.log(getRandomColor())
+
+  </script>
+</body>
+
+</html>

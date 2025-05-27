@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    let num = Math.floor(Math.random() * 10 + 1)
+    while (true) {
+      let guess = +prompt('请猜一个1-10的数字')
+      if (guess > num) {
+        alert('数字猜大了,继续猜')
+      } else if (guess < num) {
+        alert('数字猜小了,继续猜')
+      } else {
+        alert('恭喜你猜对了')
+        break
+      }
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 通过对象描述一个人的数据信息
+    // person 是一个对象，它包含了一个属性 name
+    // 属性都是成对出现的，属性名 和 值，它们之间使用英文 : 分隔
+    let person = {
+      name: '小明', // 描述人的姓名
+      'girlfriend-name': '小红',
+      age: 18, // 描述人的年龄
+      stature: 185, // 描述人的身高
+      gender: '男', // 描述人的性别
+    };
+
+    // 访问人的名字
+    console.log(person.name) // 结果为 小明
+    // 访问人性别
+    console.log(person.gender) // 结果为 男
+    // 访问人的身高
+    console.log(person['stature']) // 结果为 185
+    // 或者
+    console.log(person.stature) // 结果同为 185
+    console.log('----------------------');
+
+    //console.log(person.girlfriend-name)//这样写会会看出一个减法运算，得到的结果为NaN，这时候就得换一种写法
+    console.log(person['girlfriend-name'])
+
+    console.log(person['name'])
+    console.log(person['age'])
+    console.log(person['stature'])
+    console.log(person['gender'])
+
+
+
+
+
+
+  </script>
+</body>
+
+</html>

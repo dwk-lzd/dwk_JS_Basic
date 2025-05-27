@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    //要么用匿名函数，要么用命名函数
+
+
+    // setInterval(function () {
+    //   document.write(`一秒执行一次<br>`)
+
+    // }, 1000)
+
+    function fn() {
+      document.write(`一秒执行一次<br>`)
+
+    }
+    let n = setInterval(fn, 1000)   //fn是函数名,不能加括号，加了括号是调用
+    console.log(n)   //定时器返回的是一个数字，是定时器的编号
+
+    let m = setInterval(function () {
+      document.write(`一秒执行一次<br>`)
+
+    }, 1000)
+    console.log(m)
+
+    //关闭定时器
+    clearInterval(n)
+    clearInterval(m)
+
+  </script>
+</body>
+
+</html>

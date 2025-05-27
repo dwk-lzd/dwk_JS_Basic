@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    let computer = {
+      size: '15.6寸',
+      brand: '华为',
+      playGame: function () {
+        document.write('吃鸡')
+      },
+      code: function () {
+        document.write('写代码使我快乐')
+      },
+    }
+    document.write(`电脑品牌为:${computer.brand},电脑尺寸为：${computer.size}<br>`)
+    computer.playGame()
+    document.write('<br>')
+    computer.code()
+  </script>
+</body>
+
+</html>

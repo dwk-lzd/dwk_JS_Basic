@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    let arr = [4, 9, 5, 3, 20, 6, 15, 11, 35]
+    let sum = 0
+    let count = 0
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i] > 5) {
+        sum += arr[i]
+      }
+      if (arr[i] % 3 === 0) {
+        count++
+      }
+    }
+    document.write(`大于5的数之和为${sum}，能被3整除的数的个数为${count}`)
+  </script>
+</body>
+
+</html>

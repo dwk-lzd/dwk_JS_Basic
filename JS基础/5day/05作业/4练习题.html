@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    let random = Math.floor(Math.random() * 50 + 1)//生成1到50的随机数
+    let flag = true
+    for (let i = 1; i <= 8; i++) {
+      let guess = +prompt(`请输入你猜测的数字（1-50）`)
+      if (guess > random) {
+        alert('猜大了,请重新猜')
+
+      } else if (guess < random) {
+        alert('猜小了,请重新猜')
+      } else {
+        alert('恭喜你猜对了')
+        flag = false
+        break
+      }
+    }
+    if (flag) {
+      alert(`你的机会已经用完了，正确答案是${random}`)
+    }
+  </script>
+</body>
+
+</html>

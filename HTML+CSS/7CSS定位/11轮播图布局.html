@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul li{
+            list-style: none;
+
+        }
+
+        .outer{
+            width: 800px;
+            height: 450px;
+            border: 5px solid #ccc;
+            margin: 100px auto;
+            position: relative;
+            
+
+        }
+        .outer ul li{
+            position: absolute;
+            left: 0;
+            top: 0;
+            display: none;
+        }
+        .outer ul li.current{
+            display: block;
+        }
+        .outer .btn a{
+            text-decoration: none;
+            color: #fff;
+            position: absolute;
+            font-size: 40px;
+            font-family: serif;
+            top: 50%;
+            background-color: rgba(255,255,255,0.4);
+            width: 40px;
+            height: 80px;
+            text-align: center;
+            line-height: 80px;
+            margin-top: -40px;
+        }
+        .outer .btn a.right{
+            right: 0;
+        }
+        .outer .circle{
+            width: 180px;
+            height: 20px;
+            background: rgba(255,255,255,0.4);
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            margin-left: -90px;
+            padding: 5px 10px;
+            border-radius: 15px;
+
+        }
+        .outer .circle ol li{
+            list-style: none;
+            width: 20px;
+            height: 20px;
+            float: left;
+            background-color: #fff;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 12px;
+            line-height: 20px;
+            margin: 0 5px;
+            cursor: pointer;
+
+        }
+        .outer .circle ol li.current{
+            background-color: gold;
+            color: #fff;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="outer">
+        <ul>
+            <li class="current"><img src="../image/lunbo/img1.jpg" alt=""></li>
+            <li><img src="../image/lunbo/img2.jpg" alt=""></li>
+            <li><img src="../image/lunbo/img3.jpg" alt=""></li>
+            <li><img src="../image/lunbo/img4.jpg" alt=""></li>
+            <li><img src="../image/lunbo/img5.jpg" alt=""></li>
+            <li><img src="../image/lunbo/img6.jpg" alt=""></li>
+        </ul>
+        <div class="btn">
+            <a href="#" class="left">&lt;</a>
+            <a href="#" class="right">&gt;</a>
+        </div>
+        <div class="circle">
+            <ol>
+                <li class="current">1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+                <li>6</li>
+            </ol>
+        </div>
+    </div>
+</body>
+</html>

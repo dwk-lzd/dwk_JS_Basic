@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    table {
+      text-align: center;
+      border-collapse: collapse;
+      margin: 100px auto;
+
+
+    }
+
+    table caption {
+      font-size: 20px;
+      font-weight: bold;
+      margin: 5px 30px;
+    }
+
+    th {
+      padding: 5px 30px;
+    }
+
+    table,
+    th,
+    td {
+      border: 1px solid black;
+
+    }
+  </style>
+</head>
+
+<body>
+
+
+  <script>
+    let price = +prompt('请输入商品价格')
+    let num = +prompt('请输入商品数量')
+    let address = prompt('请输入收货地址')
+    let total = price * num
+    document.write(`
+    <table>
+    <caption>订单确认</caption>
+    <thead>
+      <tr>
+        <th>商品名称</th>
+        <th>商品价格</th>
+        <th>商品数量</th>
+        <th>总价</th>
+        <th>收货地址</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>小米手机青春PLUS</td>
+        <td>${price}元</td>
+        <td>${num}</td>
+        <td>${total}元</td>
+        <td>${address}</td>
+      </tr>
+    </tbody>
+  </table>
+    `)
+  </script>
+</body>
+
+</html>

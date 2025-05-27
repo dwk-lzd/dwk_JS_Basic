@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li>我是老大</li>
+    </ul>
+    <script>
+        const ul = document.querySelector('ul')//获取到页面中的ul元素
+        const li = document.createElement('li')//创建一个li节点
+        li.innerHTML = '我是li节点'//设置创建的节点的内部html内容
+        // ul.appendChild(li)//作为最后一个子元素添加到ul中
+
+        // insertBefore(插入的元素,放到哪个元素的前面)
+        ul.insertBefore(li, ul.children[0])//插入我们创建的li标签到ul的第一个子元素前面   ul.children[0]是插入哪个元素的前面
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    while (true) {
+      let re = prompt(`
+      1. 输入 + - * / 计算两个数字的结果
+      2. 如果是q则是退出
+    `)
+      if (re === 'q') {
+        break
+      } else if (re !== '+' && re !== '-' && re !== '*' && re !== '/') {
+        alert('请输入正确的运算符')
+      } else {
+        let num1 = Number(prompt('请输入第一个数字'))
+        let num2 = Number(prompt('请输入第二个数字'))
+        if (re === '+') {
+          alert(`您计算求和结果是：${num1 + num2}`)
+
+        } else if (re === '-') {
+          alert(`您计算求差结果是：${num1 - num2}`)
+        } else if (re === '*') {
+          alert(`您计算求积结果是：${num1 * num2}`)
+        } else if (re === '/') {
+          alert(`您计算求商结果是：${num1 / num2}`)
+        }
+
+
+      }
+
+
+    }
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .box {
+      width: 200px;
+      height: 200px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">123</div>
+  <p id="nav">abc</p>
+  <ul>
+    <li>测试1</li>
+    <li>测试2</li>
+    <li>测试3</li>
+  </ul>
+  <script>
+    //获取匹配的第一个元素
+    const box = document.querySelector('.box')
+    console.log(box)
+    const nav = document.querySelector('#nav')
+    console.log(nav)
+    nav.style.color = 'red'
+
+    //获取ul里面的第一个li
+    const li = document.querySelector('ul li:first-child')
+    console.log(li)
+
+    //获取ul里面的所有的li
+    const lis = document.querySelectorAll('ul li')
+    console.log(lis)//返回了一个数组
+  </script>
+</body>
+
+</html>

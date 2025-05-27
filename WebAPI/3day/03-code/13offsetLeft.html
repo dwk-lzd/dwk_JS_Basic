@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div {
+      width: 200px;
+      height: 200px;
+      background-color: pink;
+      margin: 100px;
+      position: relative;
+    }
+
+    p {
+      width: 100px;
+      height: 100px;
+      background-color: blue;
+      margin: 50px;
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    <p></p>
+  </div>
+  <script>
+    const div = document.querySelector('div')
+    const p = document.querySelector('p')
+    console.log(div.offsetLeft)//距离body左边距，100+8body还有8的外边距
+
+    console.log(p.offsetLeft)//50  需要看最近一级带有祖先定位的元素,如果div不带定位，则看body
+
+
+  </script>
+</body>
+
+</html>

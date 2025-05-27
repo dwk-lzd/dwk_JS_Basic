@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    let arrPers = [
+      {
+        name: '小明',
+        age: 18,
+        sex: '男',
+      },
+      {
+        name: '老刘',
+        age: 38,
+        sex: '男',
+      },
+      {
+        name: '小王',
+        age: 19,
+        sex: '女',
+      },
+    ]
+    let maxAge = arrPers[0].age
+    let arr = {}
+    for (let i = 0; i < arrPers.length; i++) {
+      if (maxAge < arrPers[i].age) {
+        maxAge = arrPers[i].age
+        arr = arrPers[i]
+
+      }
+      arrPers[i].age += 5
+    }
+    document.write(`年龄最大的为${arr.name}`)
+    console.log(arrPers)
+
+  </script>
+</body>
+
+</html>

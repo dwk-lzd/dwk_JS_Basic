@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div {
+      width: 300px;
+      height: 40px;
+      border: 1px solid pink;
+      text-align: center;
+      line-height: 40px;
+    }
+  </style>
+</head>
+
+<body>
+  <div></div>
+  <script>
+    const div = document.querySelector('div')
+    const date = new Date()
+    div.innerHTML = date.toLocaleString()//2025/5/11 16:41:45
+    // div.innerHTML=date.toLocaleDateString()//2025/5/11
+    // div.innerHTML=date.toLocaleTimeString()//16:41:45
+    setInterval(function () {
+      const date = new Date()//每秒都要获取最新的时间，所以要写到定时器里面
+      div.innerHTML = date.toLocaleString()
+    }, 1000)
+
+  </script>
+</body>
+
+</html>

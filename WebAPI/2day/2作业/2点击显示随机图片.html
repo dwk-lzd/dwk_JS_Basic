@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+    <input type="button" value="切换" id="btn"><br>
+    <img src="images/1.jpg" width="300" id="img">
+
+    <script>
+
+        const arr = ["images/1.jpg", "images/01.gif", "images/02.gif", "images/2.jpg", "images/3.jpg"]
+
+        const button = document.querySelector("#btn")
+        const img = document.querySelector("#img")
+
+        button.addEventListener('click', function () {
+            let random = Math.floor(Math.random() * arr.length)
+            img.src = arr[random]
+        })
+    </script>
+</body>
+
+</html>

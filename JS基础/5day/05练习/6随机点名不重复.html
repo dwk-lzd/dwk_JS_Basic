@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    let arr = ['赵云', '黄忠', '关羽', '张飞', '马超', '刘备', '曹操']
+    let random = Math.floor(Math.random() * arr.length)
+    document.write(`随机抽取的人是：${arr[random]}<br>`)
+
+    arr.splice(random, 1)
+    document.write(`剩余的人有：${arr}`)
+  </script>
+</body>
+
+</html>

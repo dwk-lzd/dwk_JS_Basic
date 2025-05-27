@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <textarea name="" id=""></textarea>
+  <script>
+    const str = '       pink    '
+    console.log(str.trim())//去掉字符串左右空格
+    const tx = document.querySelector('textarea')
+    tx.addEventListener('keyup', function (e) {
+      if (e.key === 'Enter') {
+        if (tx.value.trim() !== '') {
+          console.log(tx.value.trim());
+
+        }
+      }
+    })
+
+  </script>
+</body>
+
+</html>

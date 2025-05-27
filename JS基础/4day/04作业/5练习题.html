@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    function handleData(Arr = [], bool) {
+      let sum = 0
+
+      if (bool) {
+        for (let i = 0; i < Arr.length; i++) {
+          sum += Arr[i]
+        }
+      } else {
+        for (let i = 0; i < Arr.length; i++) {
+          sum += Arr[i]
+        }
+        sum = sum / Arr.length
+      }
+      return sum
+    }
+    let re1 = handleData([1, 2, 3], true)
+    let re2 = handleData([1, 2, 3], false)
+    document.write(`处理数据结果为：${re1}<br>`)
+    document.write(`处理数据结果为：${re2}`)
+  </script>
+</body>
+
+</html>

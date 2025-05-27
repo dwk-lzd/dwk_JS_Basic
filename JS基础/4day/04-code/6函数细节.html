@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    function getSum() {
+      return x + y
+      //返回值返回给了 函数的调用者  getSum(1,2)
+      //getSum(1,2) = 3
+    }
+    let result = getSum(1, 2)
+    console.log(result)
+
+    // function fn(){
+    //   console.log(1)
+
+    // }
+    // function fn(){
+    //   console.log(2)
+    // }
+    // fn()
+    //后写的函数会覆盖前面的函数
+
+    // 参数不匹配
+    function fn(a, b) {
+      console.log(a + b)
+    }
+    //1.实参多余形参  剩余的实参不参与运算  不影响结果
+
+    fn(1, 2, 3)
+
+    // 2.实参少于形参  缺少的参数默认为undefined
+    fn(1)//1+undefined=NaN
+  </script>
+</body>
+
+</html>

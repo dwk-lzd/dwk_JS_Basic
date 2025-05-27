@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .content {
+            width: 1000px;
+            height: 3000px;
+            background-color: pink;
+            margin: 0 auto;
+        }
+
+        .backtop {
+            display: none;
+            width: 50px;
+            left: 50%;
+            margin: 0 0 0 505px;
+            position: fixed;
+            bottom: 60px;
+            z-index: 100;
+        }
+
+        .backtop a {
+            height: 50px;
+            width: 50px;
+            background: url(./images/bg2.png) 0 -600px no-repeat;
+            opacity: 0.35;
+            overflow: hidden;
+            display: block;
+            text-indent: -999em;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content"></div>
+    <div class="backtop">
+        <img src="./images/close2.png" alt="">
+        <a href="javascript:;"></a>
+    </div>
+    <script>
+        //获取回到顶部按钮元素
+        const backtop = document.querySelector('.backtop')
+        //给页面添加一个滚动事件，显示我们的回到顶部按钮
+
+        function fn() {
+            const n = document.documentElement.scrollTop
+            if (n >= 200) {
+                backtop.style.display = 'block'
+            } else {
+                backtop.style.display = 'none'
+            }
+        }
+        window.addEventListener('scroll', fn)
+
+        // 给回到顶部按钮添加点击事件，点击后页面滚动到顶部,  隐藏回到顶部按钮
+        backtop.addEventListener('click', function (e) {
+            //点击后页面滚动到顶部
+            if (e.target.tagName === 'A') {
+                document.documentElement.scrollTop = 0
+            }
+            // 隐藏回到顶部按钮, 移除滚动事件
+            if (e.target.tagName === 'IMG') {
+                backtop.style.display = 'none'
+                window.removeEventListener('scroll', fn)
+            }
+
+
+        })
+    </script>
+</body>
+
+</html>

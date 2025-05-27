@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="yeye">
+        <div class="dad">
+            <div class="baby"></div>
+        </div>
+    </div>
+    <script>
+        const baby = document.querySelector('.baby')
+        console.log(baby.parentNode)//返回的是父元素，也就是.dad元素
+        console.log(baby.parentNode.parentNode)//返回父亲的父亲，也就是.yeye元素
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    let score = +prompt('请输入分数')
+
+    if (score >= 0 && score <= 100) {
+      if (90 <= score && score <= 100) {
+        alert('奖励法拉利')
+      } else if (80 <= score && score < 90) {
+        alert('奖励奥迪')
+      } else if (60 <= score && score < 80) {
+        alert('奖励奥拓')
+      } else if (score < 60) {
+        alert('打一顿')
+      }
+    } else {
+      alert('分数不合法')
+    }
+
+  </script>
+</body>
+
+</html>

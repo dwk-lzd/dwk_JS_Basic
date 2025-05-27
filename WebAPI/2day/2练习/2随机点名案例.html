@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        .box {
+            width: 600px;
+            margin: 50px auto;
+            display: flex;
+            font-size: 25px;
+            line-height: 40px;
+        }
+
+        .qs {
+
+            width: 450px;
+            height: 40px;
+            color: red;
+
+        }
+
+        .btns {
+            text-align: center;
+        }
+
+        .btns button {
+            width: 120px;
+            height: 35px;
+            margin: 0 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>随机点名</h2>
+    <div class="box">
+        <span>名字是：</span>
+        <div class="qs">这里显示姓名</div>
+    </div>
+    <div class="btns">
+        <button class="start">开始</button>
+        <button class="end">结束</button>
+    </div>
+
+    <script>
+        // 数据数组
+        const arr = ['马超', '黄忠', '赵云', '关羽', '张飞']
+        //业务1.获取开始按钮
+        const qs = document.querySelector('.qs')
+        //获取开始按钮
+        const start = document.querySelector('.start')
+        //添加开始按钮的点击事件
+
+        let timeId = 0
+        let random = 0
+        start.addEventListener('click', function () {
+            timeId = setInterval(function () {
+                random = Math.floor(Math.random() * arr.length)  //同样这里需要为全局变量,由于需要重新赋值，所以必须用let
+                qs.innerHTML = arr[random]
+            }, 35)    //如果在里面声明let timeId,这是一个局部变量，在点击事件外部是访问不了的，所以要在外面声明一个全局变量
+
+            //禁用按钮也可以写在开始按钮这里，也就是数组长度为1了
+            if (arr.length === 1) {
+                start.disabled = true
+                end.disabled = true
+
+            }
+
+        })
+
+        //业务2.获取结束按钮
+
+        //获取结束按钮
+        const end = document.querySelector('.end')
+        //添加结束按钮的点击事件
+        end.addEventListener('click', function () {
+            clearInterval(timeId)
+            //结束了，需要把当前抽取的那个数组元素删除掉，防止重复抽取
+            arr.splice(random, 1)
+            console.log(arr);
+
+            //禁用按钮也可以写在结束按钮这里
+            // if (arr[0] == undefined) {
+            //     start.disabled = true
+            //     end.disabled = true
+            // }
+        })
+
+
+
+    </script>
+</body>
+
+</html>

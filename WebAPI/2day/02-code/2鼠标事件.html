@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div {
+      height: 200px;
+      width: 200px;
+      background-color: pink;
+
+    }
+  </style>
+</head>
+
+<body>
+  <div></div>
+  <script>
+    //获取div元素
+
+    const div = document.querySelector('div')
+
+    //鼠标经过
+    div.addEventListener('mouseenter', function () {
+      console.log('你好');
+
+    })
+
+    //鼠标离开
+    div.addEventListener('mouseleave', function () {
+      console.log('再见')
+    })
+
+
+  </script>
+</body>
+
+</html>
