@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 对象解构赋值
+        const uname = '老师'
+        // const obj = {
+        //     uname: 'pink',
+        //     age: 18,
+
+        // }
+
+        // const { uname, age } = obj
+        // console.log(uname, age)
+        // 属性名和变量名需要一致，否则是undefined，并且外面不能有该变量
+
+
+        // 解决方法：改名 旧变量名: 新变量名
+
+
+        const obj = {
+            uname: 'pink',
+            age: 18,
+
+        }
+
+        const { uname: username, age } = obj
+        console.log(username, age)
+
+        // 解构数组对象
+        const pig = [
+            {
+                uname: '佩奇',
+                age: 3,
+            }
+        ]
+        const [{ uname: uname1, age: age1 }] = pig
+        console.log(uname1, age1)
+    </script>
+</body>
+
+</html>
