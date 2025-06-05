@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const arr = [1, 5, 8]
+        // 1.无初始值
+        const sum1 = arr.reduce((prev, current) => {
+            return prev + current
+
+        })
+        console.log(sum1) // 14
+
+        // 2.有初始值
+        const sum2 = arr.reduce((prev, current) => {
+            return prev + current
+        }, 10)
+        console.log(sum2) // 24
+    </script>
+</body>
+
+</html>

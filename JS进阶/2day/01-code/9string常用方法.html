@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // substring(开始的索引号, 结束的索引号)
+        // 省略第二个参数，截取到最后
+
+
+        const str = '今天又要做核酸'
+        const result = str.substring(5)
+        console.log(result) // 核酸
+
+        // 第二个参数就是不包括该位置的字符,左闭右开
+
+        const result2 = str.substring(4, 7)
+        console.log(result2) // 做核酸
+        // 索引号可以是负数，从后面开始截取
+        const result3 = str.substring(5, -1)
+        console.log(result3) // 核酸
+    </script>
+
+</body>
+
+</html>
