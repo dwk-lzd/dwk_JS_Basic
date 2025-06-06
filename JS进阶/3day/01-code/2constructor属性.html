@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Star() {
+
+        }
+        // Star.prototype.sing = () => {
+        //     console.log("唱歌");
+
+        // }
+        // Star.prototype.dance = () => {
+        //     console.log("跳舞");
+        // }
+
+        // 我们给原型对象赋值，需要重新指向构造函数，否则原型对象会丢失constructor属性
+
+        Star.prototype = {
+            // 重新指回构造函数，指向Star函数对象
+            constructor: Star,
+            sing: function () {
+                console.log("唱歌");
+            },
+            dance: function () {
+                console.log("跳舞");
+            }
+        }
+
+        const ldh = new Star();
+        console.log(Star.prototype.constructor);
+
+    </script>
+</body>
+
+</html>
