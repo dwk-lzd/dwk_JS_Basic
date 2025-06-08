@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // const Person = {
+        //     eyes: 2,
+        //     head: 1,
+
+        // }
+
+        function Person() {
+            this.eyes = 2
+            this.head = 1
+        }
+
+
+        function Woman() {
+
+        }
+        // Woman通过原型继承 Person
+        Woman.prototype = new Person()
+        Woman.prototype.constructor = Woman
+
+        console.log(Woman.prototype.constructor);
+        // 给女人添加一个方法 生孩子
+        Woman.prototype.baby = function () {
+            console.log('生孩子');
+
+        }
+        const red = new Woman()
+        console.log(red.eyes)
+        red.baby()
+
+
+        // 男人也会继承 Person，男女人指向同一个person，所以男人也会有生孩子的方法
+        // 这是不合理的
+        // 我们用构造函数的方式来继承，这样就不会出现上面的不合理情况了
+
+
+        function Man() {
+
+        }
+        Man.prototype = new Person()
+        const pink = new Man()
+        console.log(pink)
+        // pink.baby()  // 这样就会报错，因为pink没有baby方法
+
+    </script>
+</body>
+
+</html>
