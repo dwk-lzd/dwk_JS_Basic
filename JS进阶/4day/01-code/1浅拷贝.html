@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const obj = {
+            name: 'John',
+            age: 30,
+        }
+
+        //  const o=obj 修改o的内容会影响obj的内容
+
+        // 所以我们进行拷贝操作
+        const o = { ...obj }
+        o.age = 20
+        console.log(obj);
+        console.log(o);
+
+        const o1 = {}
+        Object.assign(o1, obj)
+        console.log(o1);
+        o1.age = 20
+        console.log(obj);
+        console.log(o1);
+
+
+
+
+    </script>
+</body>
+
+</html>
