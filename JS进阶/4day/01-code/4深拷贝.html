@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const obj = {
+            uname: 'pink',
+            age: 18,
+            hobby: ['篮球', '足球', '乒乓球'],
+            family: {
+                father: {
+                    name: '帅哥',
+                    age: 30
+                },
+                mother: {
+                    name: '美女',
+                    age: 28
+                }
+            }
+        }
+        const o = {}
+        function deepCopy(newObj, oldObj) {
+            for (let k in oldObj) {
+                // 用递归来遍历数组的情况，一定要先写数组，再写Object，因为数组是特殊的对象
+                if (oldObj[k] instanceof Array) {
+                    newObj[k] = []
+                    deepCopy(newObj[k], oldObj[k])
+                } else if (oldObj[k] instanceof Object) {
+                    newObj[k] = {}
+                    deepCopy(newObj[k], oldObj[k])
+                } else {
+                    // k 是属性名
+                    // newObj[k]创建属性并赋值
+                    newObj[k] = oldObj[k]
+                }
+
+            }
+        }
+        deepCopy(o, obj)
+        console.log(o)
+        o.home = '北京'
+        console.log(o);
+        console.log(obj)
+    </script>
+</body>
+
+</html>

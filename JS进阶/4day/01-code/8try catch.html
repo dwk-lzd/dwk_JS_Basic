@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>123</p>
+    <script>
+        function test() {
+            try {
+                // 写可能会报错的代码
+                // const p = document.querySelector('p')  正确写法，就执行
+                const p = document.querySelector('.p')  // 错误写法，就执行catch语句块中的代码
+                p.style.color = 'red'
+            } catch (err) {
+                console.log(err.message);// 捕获到错误信息，并打印出来,不中断程序的执行
+                // return // 我们需要自己加上return，否则会继续执行下面的代码
+                // 配合 throw new Error('出错了') 使用，中断程序的执行
+                throw new Error('出错了') // 就不需要return来中断了
+
+            } finally {
+                // 不管有没有错误，都会执行这里的代码
+                alert('不管有没有错误，都会执行')
+            }
+            console.log('后面的代码'); // 如果catch 不设置中断，会执行
+
+        }
+        test()
+    </script>
+</body>
+
+</html>
