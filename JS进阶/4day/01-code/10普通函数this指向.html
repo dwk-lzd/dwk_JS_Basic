@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        console.log(this) // 此处为 window
+        // 箭头函数
+        const sayHi = function () {
+            console.log(this) // 该箭头函数中的 this 为函数声明环境中 this 一致
+        }
+        // 普通对象
+        const user = {
+            name: '小明',
+            // 该箭头函数中的 this 为函数声明环境中 this 一致
+            walk: () => {
+                console.log(this)
+            },
+
+            sleep: function () {
+                let str = 'hello'
+                console.log(this)
+                let fn = () => {
+                    console.log(str)
+                    console.log(this) // 该箭头函数中的 this 与 sleep 中的 this 一致
+                }
+                // 调用箭头函数
+                fn();
+            }
+        }
+
+        // 动态添加方法
+        user.sayHi = sayHi
+
+        // 函数调用
+        user.sayHi()
+        user.sleep()
+        user.walk()
+    </script>
+</body>
+
+</html>

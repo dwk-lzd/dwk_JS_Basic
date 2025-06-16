@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // DOM 节点
+        const btn = document.querySelector('.btn')
+        // 箭头函数 此时 this 指向了 window
+        btn.addEventListener('click', () => {
+            console.log(this)
+        })
+        // 普通函数 此时 this 指向了 DOM 对象
+        btn.addEventListener('click', function () {
+            console.log(this)
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <body>
+        <button>发送短信</button>
+        <script>
+            const obj = {
+                name: 'John',
+                age: 30,
+
+            }
+            function fn() {
+                console.log(this);
+
+            }
+            // 1. bind不会调用函数
+            // 2.能改变this指向
+            // 3.返回值是一个函数，但是这个函数里面的this是更改过的
+            const fun = fn.bind(obj)
+            fun()
+
+            // 需求，有一个按钮，点击按钮禁用，2秒钟后开启
+            const btn = document.querySelector('button')
+            btn.addEventListener('click', function () {
+                this.disabled = true
+                setTimeout(function () {
+                    this.disabled = false
+                    // this.disabled = false 直接这样写是错误的，因为setTimeout是window调用的，this指向window
+                    // 采用箭头函数，箭头函数的this指向是上一层作用域的this，也就是button
+                    // 使用bind，将this指向button
+                }.bind(this), 2000)
+            })
+        </script>
+    </body>
+</body>
+
+</html>
