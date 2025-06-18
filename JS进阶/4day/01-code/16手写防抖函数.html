@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: gray;
+            text-align: center;
+            margin: 100px auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+    <script src="./lodash.min.js"></script>
+    <script>
+        let i = 1
+        function addMove() {
+            box.innerHTML = i++
+            // 如果里面存在大量消耗内存地代码，比如DOM操作，比如数据处理，就会造成卡顿
+        }
+        const box = document.querySelector('.box')
+
+        // 手写防抖函数
+        // 核心是利用 setTimeout 定时器来实现
+        // 1. 声明定时器变量
+        // 2. 每次鼠标移动（时间触发）的时候都要先判断定时器是否存在，如果存在就清除定时器
+        // 3. 如果没有定时器，则开启一个定时器，存入到定时器变量中
+        // 4. 定时器里面写函数调用
+        function debounce(fn, t) {
+            let timer
+            return function () {
+                if (timer) clearTimeout(timer)
+                timer = setTimeout(fn, t)
+            }
+
+        }
+        box.addEventListener('mousemove', debounce(addMove, 500))
+
+    </script>
+</body>
+
+</html>

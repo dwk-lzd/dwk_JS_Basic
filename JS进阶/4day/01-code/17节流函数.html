@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: gray;
+            text-align: center;
+            margin: 100px auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+    <script src="./lodash.min.js"></script>
+    <script>
+        let i = 1
+        function addMove() {
+            box.innerHTML = i++
+            // 如果里面存在大量消耗内存地代码，比如DOM操作，比如数据处理，就会造成卡顿
+        }
+        const box = document.querySelector('.box')
+        // box.addEventListener('mousemove', addMove)
+        // 利用lodash库实现节流效果 -500毫秒后采取
+        // 语法:_.throtter(fun,时间)
+        // 只有当时间间隔大于500毫秒才会再次执行addMove函数，在500ms内，无论移动多少次都会取消，智能等待第一次执行完
+
+        box.addEventListener('mousemove', _.throtter(addMove, 500))
+    </script>
+</body>
+
+</html>

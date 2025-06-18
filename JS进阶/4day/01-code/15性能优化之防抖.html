@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: gray;
+            text-align: center;
+            margin: 100px auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+    <script src="./lodash.min.js"></script>
+    <script>
+        let i = 1
+        function addMove() {
+            box.innerHTML = i++
+            // 如果里面存在大量消耗内存地代码，比如DOM操作，比如数据处理，就会造成卡顿
+        }
+        const box = document.querySelector('.box')
+        // box.addEventListener('mousemove', addMove)
+        // 利用lodash库实现防抖效果 -500毫秒后采取
+        // 语法:_.debounce(fun,时间)
+        // 鼠标停止移动500毫秒后才执行addMove函数
+        box.addEventListener('mousemove', _.debounce(addMove, 500))
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: gray;
+            text-align: center;
+            margin: 100px auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+    <script src="./lodash.min.js"></script>
+    <script>
+        let i = 1
+        function addMove() {
+            box.innerHTML = i++
+            // 如果里面存在大量消耗内存地代码，比如DOM操作，比如数据处理，就会造成卡顿
+        }
+        const box = document.querySelector('.box')
+        //         核心思路：
+        // 节流的核心就是利用定时器 (setTimeout) 来实现
+
+        // ①：声明一个定时器变量
+
+        // ②：当鼠标每次滑动都先判断是否有定时器了，如果有定时器则不开启新定时器
+
+        // ③：如果没有定时器则开启定时器，记得存到变量里面
+
+        // 定时器里面调用执行的函数
+        // 定时器里面要把定时器清空
+        function throtter(fn, t) {
+            let timer = null
+            return function () {
+                if (!timer) {
+                    timer = setTimeout(function () {
+                        fn()
+                        timer = null
+                        // 不能使用clearTimeout(timer) 
+                        // 在定时器内部不能清除定时器
+
+
+                    }, t)
+                }
+            }
+        }
+        box.addEventListener('mousemove', throtter(addMove, 500))
+    </script>
+</body>
+
+</html>
