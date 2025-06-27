@@ -109,11 +109,52 @@ const ediDom = document.querySelector('.edit-modal')
 const eidModal = new bootstrap.Modal(ediDom)
 document.querySelector('.list').addEventListener('click', (e) => {
   if (e.target.classList.contains('edit')) {
-    eidModal.show()
+    // 4.2 获取当前编辑图书数据->回显到编辑表单中
+    const theId = e.target.parentNode.dataset.id
+    // console.log(theId);
+    axios({
+      url: `http://hmajax.itheima.net/api/books/${theId}`,
+    }).then(res => {
+      // console.log(res);
+      const bookObj = res.data.data
+      // document.querySelector('.edit-form .bookname').value = bookObj.bookname
+      // document.querySelector('.edit-form .author').value = bookObj.author
+      // document.querySelector('.edit-form .publisher').value = bookObj.publisher
+      // 数据对象的属性和标签类名一致
+      // 遍历数据对象，使用属性去获取对应的标签快速的赋值
+      const keys = Object.keys(bookObj)
+      keys.forEach((key) => {
+        document.querySelector(`.edit-form .${key}`).value = bookObj[key]
+      })
+      eidModal.show()
+
+    })
+
+
 
   }
 })
-// 4.2 点击修改按钮-》隐藏弹框
+// 点击修改按钮-》隐藏弹框
 document.querySelector('.edit-btn').addEventListener('click', () => {
-  eidModal.hide()
+  // 提交保存修改，并刷新列表
+  const editForm = document.querySelector('.edit-form')
+  const [id, author, booname, publisher] = serialize(editForm, { hash: true, empty: true })
+  console.log(editFormList);
+
+  axios({
+    url: `http://hmajax.itheima.net/api/books/${id}`,
+    method: 'PUT',
+    data: {
+      bookname,
+      authorr,
+      publisher,
+      creator
+    }
+  }).then(res => {
+    // console.log(res);
+    getboksList();
+    eidModal.hide()
+
+  })
+
 })
