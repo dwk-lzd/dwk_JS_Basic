@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var name = 'kai'
+        Function.prototype.myBind = function (obj, ...args) {
+            if (this instanceof Function === false) {
+                throw new TypeError('TypeError: Not a function')
+            }
+            if (obj === null || obj === undefined) {
+                return (...Args) => {
+                    return this.call(window, ...args, ...Args)
+                }
+            }
+
+            return (...Args) => {
+                return this.call(obj, ...args, ...Args)
+            }
+        }
+        const person = {
+            name: '帅哥'
+        }
+        function func(a, b, c, d) {
+            console.log(this);
+            console.log(this.name);
+            console.log(a, b, c, d);
+            return a + b + c + d;
+        }
+        const res = func.myBind(person, 1, 2, 3, 4)
+        res()
+        const res2 = func.myBind(null, 1, 2, 3, 4)
+        res2()
+    </script>
+</body>
+
+</html>
