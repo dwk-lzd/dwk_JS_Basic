@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import avatar from './images/bozai.png'
 import './App.css'
+import _ from 'lodash'
+import classNames from 'classnames'
 
 const defaultList = [
   {
@@ -27,7 +29,7 @@ const defaultList = [
     },
     content: '我寻你千百度 日出到迟暮',
     ctime: '11-13 11:29',
-    like: 88,
+    like: 108,
   },
   {
     rpid: 1,
@@ -67,7 +69,30 @@ const tabs = [
 ]
 
 const App = () => {
-  const [commentList, setCommentList] = useState(defaultList)
+  const [commentList, setCommentList] = useState(_.orderBy(defaultList, ['like'], ['desc']))
+
+  // 删除功能
+  const handleDelete = (id) => {
+    console.log(id);
+    // 对commentList做过滤处理
+    setCommentList(commentList.filter(item => item.rpid !== id))
+
+  }
+
+  // tab切换功能
+  const [type, setType] = useState('hot')
+  const handelTabChange = (type) => {
+    console.log(type);
+    setType(type)
+    // 基于列表的排序
+    if (type === 'hot') {
+      // 根据点赞数排序
+      setCommentList(_.orderBy(commentList, ['like'], ['desc']))
+    } else {
+      // 根据创建时间排序
+      setCommentList(_.orderBy(commentList, ['ctime'], ['desc']))
+    }
+  }
   return (
     <div className="app">
       {/* 导航 Tab */}
@@ -80,8 +105,12 @@ const App = () => {
           </li>
           <li className="nav-sort">
             {/* 高亮类名： active */}
-            <span className='nav-item'>最新</span>
-            <span className='nav-item'>最热</span>
+            {tabs.map(item => (
+              <span key={item.type}
+                onClick={() => handelTabChange(item.type)}
+                className={classNames('nav-item', { active: type === item.type })}>{item.text}
+              </span>))}
+
           </li>
         </ul>
       </div>
@@ -136,9 +165,11 @@ const App = () => {
                     <span className="reply-time">{item.ctime}</span>
                     {/* 评论数量 */}
                     <span className="reply-time">点赞数:{item.like}</span>
-                    <span className="delete-btn">
-                      删除
-                    </span>
+                    {/* 条件：user.id === item.user.id */}
+                    {user.uid === item.user.uid &&
+                      <span className="delete-btn" onClick={() => handleDelete(item.rpid)}>
+                        删除
+                      </span>}
 
                   </div>
                 </div>
