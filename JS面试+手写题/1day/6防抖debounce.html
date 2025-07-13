@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            width: 300px;
+            height: 300px;
+            background-color: blue;
+            text-align: center;
+            font-size: 50px;
+            color: red;
+        }
+
+        .container1 {
+            width: 300px;
+            height: 300px;
+            background-color: green;
+            text-align: center;
+            font-size: 50px;
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">0</div>
+    <div class="container1"></div>
+    <script>
+        const debounce = (fn, delay) => {
+            let timer = null;
+            return function (...args) {
+                let that = this
+                if (timer) clearTimeout(timer);
+                timer = setTimeout(() => {
+                    fn.apply(that, args)
+                }, delay)
+            }
+        }
+        const Debounce = debounce(function () {
+            container.innerHTML = parseInt(container.innerHTML) + 1;
+        }, 1000)
+        const container = document.querySelector('.container')
+        const container1 = document.querySelector('.container1')
+        container.addEventListener('mousemove', Debounce)
+
+        const obj = {
+            name: 'zhangsan',
+            sayHello: debounce(function () {
+                console.log(`hello ${this.name}`);
+
+            }, 1000)
+        }
+        // obj.sayHello()
+        container1.addEventListener('click', obj.sayHello.bind(obj))
+    </script>
+</body>
+
+</html>
