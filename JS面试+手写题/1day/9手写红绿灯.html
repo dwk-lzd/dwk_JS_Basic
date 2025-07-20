@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function red() {
+            console.log("red");
+        }
+        function green() {
+            console.log("green");
+        }
+        function yellow() {
+            console.log("yellow");
+        }
+
+        function light(cb, wait) {
+            return new Promise(resolve => {
+                setTimeout(() => {
+                    cb()
+                    resolve()
+                }, wait)
+            })
+        }
+
+        async function start() {
+            await light(red, 1000)
+            await light(green, 1000)
+            await light(yellow, 1000)
+            await start()
+        }
+        start()
+    </script>
+</body>
+
+</html>
