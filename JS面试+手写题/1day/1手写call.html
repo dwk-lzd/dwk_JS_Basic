@@ -19,6 +19,8 @@
             const fn = Symbol('fn')
             object[fn] = this
             const res = object[fn](...args)
+            console.log(...args);
+
             delete object[fn]
             return res
         }
@@ -31,10 +33,10 @@
             console.log(num1 + num2);
             return num1 + num2
         }
-        // func.myCall(Person, 1, 2)
+        func.myCall(Person, 1, 2)
         const p = 2
         // p.myCall(Person, 1, 2)
-        func.myCall(null, 1, 2)
+        // func.myCall(null, 1, 2)
     </script>
 </body>
 
